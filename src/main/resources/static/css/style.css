@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('/fonts/pixel-font.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Pixel', sans-serif;
+    background-color: #000;
+    color: #0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+section {
+    height: 650px;
+}
+
+
+/* ----- < section1 > ------------------------------------------------------------------------------------------------------------------*/
+#section1 {
+    height: 500px; /* 세션 높이 */
+    background-color: #ff4d4d; /* red #ff4d4d*/
+}
+
+.slide-container {
+    height: 100%; /* 세션 높이 */
+    position: relative; /* 슬라이드 내 이미지의 position 지정을 위해 필요 */
+}
+
+.mySlides {
+    position: absolute; /* 이미지 위치 조정 */
+    top: 0; /* top: 0, left: 0 으로 설정하여 이미지 겹치치 않도록 조정 */
+    left: 0;
+    width: 100%;
+    object-fit: cover; /* 이미지 유형에 상관없이 비율 유지하며 ���기 조절 */
+    height: 100%;
+    display: none; /* 초기에는 모든 이미지를 보이지 않도록 설정 */
+}
+
+/* 이미지 전환을 위한 버튼 스타일 */
+.prev, .next {
+    position: absolute; /* 버튼 위치 설정 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin: auto 0;
+    padding: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1; /* 버튼이 이미지위로 나타나도록 조정 */
+    background-color: rgba(0,0,0,0.5); /* 배경 투명하게 */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8); /* 호버되면 배경 어둡게 */
+}
+
+.next {
+    right: 0;
+}
+
+/* ----- < section2 > ------------------------------------------------------------------------------------------------------------------*/
+#section2 {
+    background-color: #ffac4d; /* orange */
+    height: 150px;
+}
+
+#section3 {
+    background-color: #4dff4d; /* green */
+}
+
+#section4 {
+    background-color: #4d4dff; /* blue */
+}
+
+#section5 {
+    background-color: #ac4dff; /* purple */
+}
+
+h1 {
+    text-align: center;
+    animation: blink 1s linear infinite;
+    line-height: 0.25;
+}
+
+footer {
+    background-color: #ffffff; /* white */
+    color: #000000; /* black text */
+    height: 250px;
+}
+
+@keyframes blink {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
