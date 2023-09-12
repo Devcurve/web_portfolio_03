@@ -5,12 +5,47 @@
     <title>Portfolio Game Style Page</title>
     <!--link rel="stylesheet" href="css/footer.css"-->
     <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        .weather {
+            position: fixed;
+            top: 50%;
+            left: 20px; /* 좌측 여백 조정 */
+            transform: translateY(-50%);
+        }
+
+        @media screen and (max-width: 768px) {
+            .weather {
+                position: static;
+                transform: none;
+                text-align: center;
+                margin-top: 20px; /* 필요에 따라 조정하세요 */
+                margin-bottom: 20px; /* 필요에 따라 조정하세요 */
+                left: auto; /* 모바일에서 좌측 정렬을 해제하기 위해 추가 */
+                right: auto; /* 모바일에서 우측 정렬을 해제하기 위해 추가 */
+            }
+        }
+    </style>
+
+
 </head>
 <body>
     <!-- 여기에 페이지 내용을 넣어 -->
     <header>
         <h1>Welcome to our 16-bit Game!</h1>
     </header>
+
+
+    <!-- Weather widget by https://meteodays.com -->
+    <div class="weather">
+        <a id="ms-informer-link-a82ee8d455d3c02747013934056440ba" class="ms-informer-link" href="https://meteodays.com/ko/weather/overview/seoul">서울날씨</a>
+        <script class="ms-informer-script" src="https://meteodays.com/ko/informer/script/a82ee8d455d3c02747013934056440ba"></script>
+    </div>
+    <!-- End -->
+
+
+
 
     <!-- Section 1 -->
     <div id="section1" class="section">
@@ -50,6 +85,23 @@
         <p>&copy; 2023 Our Game Company. All rights reserved.</p>
         <p>Contact us at: <a href="mailto:info@ourgamecompany.com">info@ourgamecompany.com</a></p>
     </footer>
+
+    <script>
+        var weatherElement = document.querySelector('.weather');
+        var isActive = false;
+
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+
+            if (scrollPosition > window.innerHeight /2 && !isActive) {
+                weatherElement.classList.add('active');
+                isActive = true;
+            } else if (scrollPosition <= window.innerHeight /2 && isActive) {
+                weatherElement.classList.remove('active');
+                isActive = false;
+            }
+        });
+    </script>
 </body>
 </html>
 
